@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>ESP32 Web Flasher</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Подключение esptool-js через CDN -->
+  <script src="https://unpkg.com/esptool-js@0.5.0/bundle.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h2>ESP32 Web Flasher</h2>
+    
+    <div class="controls">
+      <button id="connectBtn">Подключить ESP32</button>
+      <span id="status">Статус: Отключено</span>
+    </div>
+
+    <div class="file-section">
+      <label for="firmwareFile">Выберите файл прошивки (.bin):</label>
+      <input type="file" id="firmwareFile" accept=".bin">
+      
+      <label for="offset">Адрес смещения (Offset):</label>
+      <input type="text" id="offset" value="0x10000">
+    </div>
+
+    <button id="programBtn" disabled>Прошить</button>
+
+    <div class="progress-bar-container">
+      <div id="progressBar">0%</div>
+    </div>
+
+    <textarea id="log" readonly placeholder="Логи процесса..."></textarea>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
